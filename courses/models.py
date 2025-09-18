@@ -41,7 +41,7 @@ class Module(models.Model):
     course = models.ForeignKey(Course, related_name="modules", on_delete=models.CASCADE)
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    order = OrderField(blank=True, for_fields=['course'])
+    order = OrderField(blank=True, for_fields=['course']) # type: ignore
     
     def __str__(self):
         return f'{self.order}. {self.title}'
@@ -60,7 +60,7 @@ class Content(models.Model):
     )
     object_id = models.PositiveIntegerField()
     item = GenericForeignKey("content_type", "object_id")
-    order = OrderField(blank=True, for_fields=['module'])
+    order = OrderField(blank=True, for_fields=['module']) # type: ignore
     
     class Meta:
         ordering = ['order']
