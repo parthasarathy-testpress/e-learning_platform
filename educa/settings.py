@@ -138,3 +138,6 @@ REST_FRAMEWORK = {
 }
 
 ASGI_APPLICATION = 'educa.routing.application'
+
+# settings.py
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
