@@ -6,6 +6,7 @@ from django.utils import timezone
 
 class ChatConsumer(AsyncWebsocketConsumer):
     async def connect(self):
+        print("connected")
         self.user = self.scope["user"]
         self.id = self.scope["url_route"]["kwargs"]["course_id"]
         self.room_group_name = "chat_%s" % self.id
